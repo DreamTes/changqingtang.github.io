@@ -1,96 +1,65 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# Changqing Tang Academic Homepage
 
-![Academic Pages template example](images/themes/homepage-light.png "Academic Pages template example")
+这是一个基于 **Jekyll + GitHub Pages** 的学术主页仓库，用于展示个人简介、论文、报告、教学与博客内容。
 
-# Getting Started
+## 在线预览与发布
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your public repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+本仓库可以直接依赖 GitHub Pages 自动构建，无需本地环境即可预览更新。
 
-See more info at https://academicpages.github.io/
+1. 代码推送到 `main` 分支。
+2. 在 GitHub 仓库 `Settings -> Pages` 中确认发布来源为当前仓库分支。
+3. 发布地址通常为：
+   - 用户主页仓库：`https://dreamtes.github.io/`
+   - 项目仓库：`https://dreamtes.github.io/changqingtang.github.io/`
 
-## Running locally
+## 目录结构
 
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
+- `_config.yml`：站点全局配置（站点标题、作者信息、社交链接等）
+- `_data/navigation.yml`：顶部导航菜单
+- `_pages/`：About、CV、Guide 等独立页面
+- `_publications/`：论文条目（每篇一个 Markdown 文件）
+- `_talks/`：报告/演讲条目
+- `_teaching/`：教学条目
+- `_posts/`：博客文章
+- `files/`：PDF、附件等下载文件
+- `images/`：图片资源
+- `assets/`、`_sass/`：前端样式与脚本
 
-1. Clone the repository and made updates as detailed above.
+## 首次配置（必做）
 
-### Using a different IDE
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try run `sudo apt install ruby-dev ruby-bundler nodejs` again.
+编辑 `_config.yml`，至少修改以下字段：
+- `title`、`name`、`description`
+- `url`（你的站点 URL）
+- `repository`（`DreamTes/changqingtang.github.io`）
+- `author` 下的头像、机构、邮箱、学术链接
 
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
+编辑 `_pages/about.md`，替换模板默认介绍为你的个人简介。
 
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and `.bundle`.
+## 内容更新示例
 
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change to Markdown (*.md) and HTML files, while changes to the core template and configuration (i.e., `_config.yml`) will require stoping and restarting Jekyll.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
+- 新增论文：在 `_publications/` 新建 `YYYY-MM-DD-title.md`
+- 新增报告：在 `_talks/` 新建 `YYYY-MM-DD-title.md`
+- 上传论文 PDF：放到 `files/`，在条目里用 `paperurl` 引用
+- 调整导航：修改 `_data/navigation.yml`
 
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
+## 本地预览（可选）
 
-## Using Docker
-
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
-
-You can build and execute the container by running the following command in the repository:
+如果你之后需要更快调样式，可本地运行：
 
 ```bash
-chmod -R 777 .
-docker compose up
+bundle install
+npm install
+bundle exec jekyll serve -l -H localhost
 ```
 
-You should now be able to access the website from `localhost:4000`.
+访问 `http://localhost:4000`。
 
-### Using the DevContainer in VS Code
+## 常见问题
 
-If you are using [Visual Studio Code](https://code.visualstudio.com/) you can use the [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) that comes with this Repository. Normally VS Code detects that a development container configuration is available and asks you if you want to use the container. If this doesn't happen you can manually start the container by **F1->DevContainer: Reopen in Container**. This restarts your VS Code in the container and automatically hosts your academic page locally on http://localhost:4000. All changes will be updated live to that page after a few seconds.
+### `Scrape Talk Locations / build (push)` 失败
 
-# Maintenance
+当前仓库包含 `.github/workflows/scrape_talks.yml`，该工作流会执行 `talkmap.ipynb`。若仓库中不存在该 notebook，会快速失败。
 
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
-
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
-
-## Bugfixes and enhancements
-
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
-
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
-
----
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
-
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+可选处理：
+- 不使用 talk 地图功能：删除该 workflow 文件；
+- 使用该功能：补充 `talkmap.ipynb` 并确保依赖可安装。
