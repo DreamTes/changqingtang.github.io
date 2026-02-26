@@ -1,42 +1,48 @@
 # Site Settings
-locale                   : "zh-CN"
-site_theme               : "default" # "default", "air", "sunrise", "mint", "dirt", "contrast"
-title                    : "你的名字 | 个人主页"
-title_separator          : "-"
-name                     : "你的名字"
-description              : "你的学术个人简历 / 个人主页"
-url                      : "https://dreamtes.github.io"
-baseurl                  : ""
-repository               : "DreamTes/dreamtes.github.io"
+locale: "zh-CN"
+site_theme: "default" # "default", "air", "sunrise", "mint", "dirt", "contrast"
+title: "你的名字 | 个人主页"
+title_separator: "-"
+name: "你的名字"
+description: "你的学术个人简历 / 个人主页"
+url: "https://dreamtes.github.io"
+baseurl: ""
+repository: "DreamTes/dreamtes.github.io"
 
 # Author Profile
 author:
-  avatar           : "profile.png"
-  name             : "你的名字"
-  bio              : "你的职位 / 研究方向"
-  location         : "城市, 国家"
-  employer         : "所属大学/机构"
-  email            : "youremail@example.com"
+  avatar: "profile.png"
+  name: "你的名字"
+  bio: "你的职位 / 研究方向"
+  location: "城市, 国家"
+  employer: "所属大学/机构"
+  email: "youremail@example.com"
 
   # Academic Links
-  googlescholar    : "https://scholar.google.com/citations?user=..."
-  orcid            : "https://orcid.org/0000-..."
-  researchgate     :
-  arxiv            :
+  googlescholar: "https://scholar.google.com/citations?user=..."
+  orcid: "https://orcid.org/0000-..."
+  researchgate:
+  arxiv:
 
   # Social/Dev Links
-  github           : "DreamTes"
-  linkedin         : "yourusername"
-  twitter          :
+  github: "DreamTes"
+  linkedin: "yourusername"
+  twitter:
 
 # Content Settings
 publication_category:
   books:
-    title: 'Books'
+    title: "Books"
   manuscripts:
-    title: 'Journal Articles'
+    title: "Journal Articles"
   conferences:
-    title: 'Conference Papers'
+    title: "Conference Papers"
+  category1:
+    title: "Category 1"
+  category2:
+    title: "Category 2"
+  category3:
+    title: "Category 3"
 
 include:
   - .htaccess
