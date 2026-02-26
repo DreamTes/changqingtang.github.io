@@ -9,7 +9,7 @@ venue: "IEEE TPAMI"
 paperurl: "https://academicpages.github.io/files/paper3.pdf"
 codeurl: ""
 authors: "Yulan Guo, Longguang Wang, Wendong Mao, Xiaoyu Dong, **你的名字**, Li Liu, Wei An."
-teaser: "images/test_image.png"
+teaser: "test_image.png"
 citation: "Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>IEEE TPAMI</i>. 1(3)."
 ---
 
