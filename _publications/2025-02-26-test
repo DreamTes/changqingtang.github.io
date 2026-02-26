@@ -9,6 +9,6 @@ venue: "IEEE TPAMI"
 paperurl: "https://academicpages.github.io/files/paper3.pdf"
 codeurl: "https://github.com/DreamTes/example"
 authors: "Yulan Guo, Longguang Wang, Wendong Mao, Xiaoyu Dong, **你的名字**, Li Liu, Wei An."
-teaser: "test_image.png"
+teaser: "images/test_image.png"
 citation: "Your Name, You. (2026). &quot;Paper Title Number 5.&quot; <i>IEEE TPAMI</i>."
 ---
